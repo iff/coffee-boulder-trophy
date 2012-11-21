@@ -1,0 +1,15 @@
+{
+    "name"    : "minimum-trophy",
+    "version" : "0.0.1",
+    "private" : true,
+
+    "dependencies": {
+          "express"       : "2.5.x"
+        , "coffee-script" : "1.2.x"
+        , "jade"          : "0.13.x"
+        , "underscore"    : "1.2.x"
+        , "futures"       : "latest"
+        , "mongoose"      : "2.3.x"
+        , "connect-mongo" : "0.1.x"
+    }
+}

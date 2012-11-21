@@ -1,0 +1,152 @@
+
+div.navbar.navbar-inverse
+  div.navbar-inner
+    div.container
+
+      a.btn.btn-navbar(data-toggle="collapse", data-target=".nav-collapse")
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+
+      a.brand(href="/")
+        img(src="mini.png")
+
+      div.nav-collapse
+        ul.nav
+          li
+            a(href="/about")
+              | About
+
+      h1.pull-right
+        small
+          | coffee
+        ="boulder-trophy"
+
+
+div.tabbable
+  ul.nav.nav-tabs
+    li.active
+      a(href="#tabadd", data-toggle="tab")
+        | Add
+    li
+      a(href="#tabrank", data-toggle="tab")
+        | Ranking
+    li
+      a(href="#tabstats", data-toggle="tab")
+        | Statistics
+
+  div.tab-content
+    div.tab-pane.active(id="tabadd")
+
+      script(src='/javascript/append.js')
+      form(name='part', action='/add', method="post")
+        fieldset
+          legend Add Participant
+          input(name="name", id="name", type="text", class="input", placeholder="name")
+          input(name="gender", id="gender", type="text", class="input-small", placeholder="gender")
+
+          div#input-append
+            input(id="nr", class="span1", type="text", placeholder="boulder")
+            input(name="boulders", id="nr_col", class="span6", type="text")
+            a(id="clear", class="btn") clear
+
+          button.btn.btn-primary(id="commit", type="submit") Add
+
+
+      legend Participants
+      div(class="row-fluid")
+        div(class="span6")
+          table(class="table table-hover table-condensed table-bordered")
+            thead
+              tr
+                th Name
+                th Boulders
+            - for (var id in rankData)
+              - if (rankData[id].gender == 'm')
+                tr.error
+                  td
+                    = rankData[id].name
+                  td
+                    = rankData[id].boulders_short
+
+        div(class="span6")
+          table(class="table table-hover table-condensed table-bordered")
+            thead
+              tr
+                th Name
+                th Boulders
+            - for (var id in rankData)
+              - if (rankData[id].gender == 'f')
+                tr.info
+                  td
+                    = rankData[id].name
+                  td
+                    = rankData[id].boulders_short
+
+
+    div.tab-pane(id="tabrank")
+
+      legend Ranking
+      div(class="row-fluid")
+        div(class="span6")
+          table(class="table table-hover table-condensed table-bordered")
+            thead
+              tr
+                th Rank
+                th Name
+                th Points
+            - var rank = 0
+            - for (var id in ranking)
+              - if (ranking[id].gender == 'm')
+                - var rank = rank + 1
+                - if (rank < 5)
+                  tr.success
+                    td
+                      = rank
+                    td
+                      = ranking[id].name
+                    td
+                      = ranking[id].points
+                - else
+                  tr
+                    td
+                      = rank
+                    td
+                      = ranking[id].name
+                    td
+                      = ranking[id].points
+
+        div(class="span6")
+          table(class="table table-hover table-condensed table-bordered")
+            thead
+              tr
+                th Rank
+                th Name
+                th Points
+            - var rank = 0
+            - for (var id in ranking)
+              - if (ranking[id].gender == 'f')
+                - var rank = rank + 1
+                - if (rank < 5)
+                  tr.success
+                    td
+                      = rank
+                    td
+                      = ranking[id].name
+                    td
+                      = ranking[id].points
+                - else
+                  tr
+                    td
+                      = rank
+                    td
+                      = ranking[id].name
+                    td
+                      = ranking[id].points
+
+
+    div.tab-pane(id="tabstats")
+      p
+        | here be stats
+
+
