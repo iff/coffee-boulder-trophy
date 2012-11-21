@@ -9,7 +9,7 @@ into a mongo database and visualize results.
 
 ## Requirements
 
-The following tools are required to get DIR up and running:
+The following tools are required to get the boulder-trophy app up and running:
 
  * [node.js](http://nodejs.org/) 0.6.x
  * [npm](http://npmjs.org/) 1.x
