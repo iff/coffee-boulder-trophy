@@ -95,9 +95,12 @@ div.tabbable
                 th Name
                 th Points
             - var rank = 0
+            - var last_rank_pts = 0
             - for (var id in ranking)
               - if (ranking[id].gender == 'm')
-                - var rank = rank + 1
+                - if (ranking[id].points != last_rank_pts)
+                  - var rank = rank + 1
+                - var last_rank_pts = ranking[id].points
                 - if (rank < 5)
                   tr.success
                     td
@@ -123,9 +126,12 @@ div.tabbable
                 th Name
                 th Points
             - var rank = 0
+            - var last_rank_pts = 0
             - for (var id in ranking)
               - if (ranking[id].gender == 'f')
-                - var rank = rank + 1
+                - if (ranking[id].points != last_rank_pts)
+                  - var rank = rank + 1
+                - var last_rank_pts = ranking[id].points
                 - if (rank < 5)
                   tr.success
                     td
