@@ -21,5 +21,21 @@ $(function() {
     $('#nr_col').val("");
   })
 
+  $('#male_part').find('tr').click(function() {
+      name = $(this).find('td:first').text();
+      boulders = $(this).find('td:nth-child(2)').text();
+      $('#name').val(name);
+      $('#gender').val("m");
+      $('#nr_col').val(boulders);
+  })
+
+  $('#female_part').find('tr').click(function() {
+      name = $(this).find('td:first').text();
+      boulders = $(this).find('td:nth-child(2)').text();
+      $('#name').val(name);
+      $('#gender').val("f");
+      $('#nr_col').val(boulders);
+  })
+
 })
 

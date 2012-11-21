@@ -55,7 +55,7 @@ div.tabbable
       legend Participants
       div(class="row-fluid")
         div(class="span6")
-          table(class="table table-hover table-condensed table-bordered")
+          table(id="male_part", class="table table-hover table-condensed table-bordered")
             thead
               tr
                 th Name
@@ -69,7 +69,7 @@ div.tabbable
                     = rankData[id].boulders_short
 
         div(class="span6")
-          table(class="table table-hover table-condensed table-bordered")
+          table(id="female_part", class="table table-hover table-condensed table-bordered")
             thead
               tr
                 th Name
